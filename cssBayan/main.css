@@ -51,7 +51,7 @@ body {
 /*      tablet      */
 @media (min-width: 800px) {
     .main-title {
-        font-size: 2em;
+        font-size: 1.7em;
     }
     .meme__title {
         font-size: 1.2em;
@@ -61,5 +61,18 @@ body {
     }
     .meme__input:checked ~ .meme__img {
         margin-bottom: 2em;
+    }
+}
+
+/*      desktop     */
+@media (min-width: 1200px) {
+    .main {
+        width: 40%;
+    }
+    .main-title {
+        font-size: 2em;
+    }
+    .meme__title {
+        font-size: 1.4em;
     }
 }

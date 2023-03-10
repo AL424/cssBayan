@@ -47,3 +47,19 @@ body {
 .meme__input:checked ~ .meme__title {
     color: #012E4A;
 }
+
+/*      tablet      */
+@media (min-width: 800px) {
+    .main-title {
+        font-size: 2em;
+    }
+    .meme__title {
+        font-size: 1.2em;
+    }
+    .meme__img {
+        width: 60%;
+    }
+    .meme__input:checked ~ .meme__img {
+        margin-bottom: 2em;
+    }
+}

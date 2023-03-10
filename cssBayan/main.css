@@ -25,8 +25,29 @@ body {
     display: none;
 }
 
+.meme__label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 .meme__title {
     font-size: 1em;
+    min-width: 80%;
+    transition: all 0.3s linear;
+}
+
+.meme__icon {
+    display: block;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background: url("icon/icon-blue.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: all 0.3s linear;
 }
 
 .meme__img {
@@ -46,6 +67,14 @@ body {
 
 .meme__input:checked ~ .meme__title {
     color: #012E4A;
+}
+
+.meme__input:checked ~ .meme__icon {
+    background: url("icon/icon-dark.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transform: rotate(45deg);
 }
 
 /*      tablet      */

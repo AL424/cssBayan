@@ -4,7 +4,7 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    color: #1423cf;
+    color: #012E4A;
 }
 
 .main {
@@ -40,14 +40,13 @@ body {
 
 .meme__icon {
     display: block;
-    width: 1em;
-    height: 1em;
-    border-radius: 50%;
-    background: url("icon/icon-blue.svg");
+    width: 0.8em;
+    height: 0.8em;
+    background: url("icon/icon-dark.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    transition: all 0.3s linear;
+    transition: all 0.2s ease;
 }
 
 .meme__img {
@@ -65,16 +64,14 @@ body {
     transform: scale(1);
 }
 
-.meme__input:checked ~ .meme__title {
-    color: #012E4A;
-}
-
 .meme__input:checked ~ .meme__icon {
-    background: url("icon/icon-dark.svg");
+    width: 0.7em;
+    height: 0.7em;
+    margin-right: 0.05em;
+    background: url("icon/close-dark.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    transform: rotate(45deg);
 }
 
 /*      tablet      */
@@ -83,7 +80,7 @@ body {
         font-size: 1.7em;
     }
     .meme__title {
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
     .meme__img {
         width: 60%;
@@ -102,6 +99,35 @@ body {
         font-size: 2em;
     }
     .meme__title {
-        font-size: 1.4em;
+        font-size: 1.2em;
     }
+    .meme__icon {
+        width: 1em;
+        height: 1em;
+    }
+    .meme__input:checked ~ .meme__icon {
+        width: 0.9em;
+        height: 0.9em;
+    }
+}
+
+@media (hover: hover) {
+    /*      Наведение на аккордион      */
+    .meme__title {
+        color: #1423CF;
+    }
+    .meme__icon {
+        transform: scale(0);
+    }
+    .meme__input:checked ~ .meme__title {
+        color: #012E4A;
+    }
+    .accordion:hover .meme__title {
+        color: #012E4A;
+    }
+    .accordion:hover .meme__icon {
+        transform: scale(1);
+    }
+    /*      Наведение на один из элементов      */
+
 }

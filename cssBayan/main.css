@@ -34,7 +34,7 @@ body {
 /* изменение заголовка мема в выбраном состоянии */
 .meme__title {
     font-size: 1em;
-    min-width: 80%;
+    width: 80%;
     color: #1423CF;
     transition: all 0.3s linear;
 }

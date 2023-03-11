@@ -14,7 +14,6 @@ body {
 
 .main-title {
     font-size: 1.5em;
-    color: #012E4A;
 }
 
 .meme {
@@ -32,38 +31,28 @@ body {
     flex-wrap: wrap;
 }
 
+/* изменение заголовка мема в выбраном состоянии */
 .meme__title {
     font-size: 1em;
     min-width: 80%;
+    color: #1423CF;
     transition: all 0.3s linear;
 }
+.meme__input:checked ~ .meme__title {
+    color: #012E4A;
+}
 
+/* изменение иконки выбраного мема */
 .meme__icon {
     display: block;
     width: 0.8em;
     height: 0.8em;
-    background: url("icon/icon-dark.svg");
+    background: url("icon/icon-blue.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     transition: all 0.2s ease;
 }
-
-.meme__img {
-    display: block;
-    width: 80%;
-    height: 0;
-    margin: 0 auto;
-    transform: scale(0);
-    transition: all 0.3s linear;
-}
-
-.meme__input:checked ~ .meme__img {
-    height: auto;
-    margin-bottom: 1em;
-    transform: scale(1);
-}
-
 .meme__input:checked ~ .meme__icon {
     width: 0.7em;
     height: 0.7em;
@@ -72,6 +61,22 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+}
+
+/* отображение изображения выбраного мема */
+.meme__img {
+    display: block;
+    width: 80%;
+    height: 0;
+    margin: 0 auto;
+    object-fit: contain;
+    transform: scale(0);
+    transition: all 0.3s linear;
+}
+.meme__input:checked ~ .meme__img {
+    height: auto;
+    margin-bottom: 1em;
+    transform: scale(1);
 }
 
 /*      tablet      */
@@ -84,6 +89,7 @@ body {
     }
     .meme__img {
         width: 60%;
+        max-height: 70vh;
     }
     .meme__input:checked ~ .meme__img {
         margin-bottom: 2em;
@@ -105,29 +111,80 @@ body {
         width: 1em;
         height: 1em;
     }
+    .meme__img {
+        max-height: 50vh;
+    }
     .meme__input:checked ~ .meme__icon {
-        width: 0.9em;
-        height: 0.9em;
+        width: 0.8em;
+        height: 0.8em;
+        margin-right: 0.05em;
     }
 }
 
+/*      Устройства с курсорами      */
 @media (hover: hover) {
     /*      Наведение на аккордион      */
-    .meme__title {
-        color: #1423CF;
+    /* изменение курсора */
+    .meme__label, 
+    .meme,
+    .accordion {
+        cursor: pointer;
     }
+    .meme__title,
+    .meme__icon,
+    .meme__img {
+        pointer-events: none;
+    }
+    /* отоброжение иконки */
     .meme__icon {
+        background: url("icon/icon-dark.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
         transform: scale(0);
-    }
-    .meme__input:checked ~ .meme__title {
-        color: #012E4A;
-    }
-    .accordion:hover .meme__title {
-        color: #012E4A;
     }
     .accordion:hover .meme__icon {
         transform: scale(1);
     }
+    /* изменение цвета заголовков мемов */
+    .accordion:hover .meme__title {
+        color: #012E4A;
+    }
+    
     /*      Наведение на один из элементов      */
+    /* отображение изображения мема */
+    .meme__label:hover .meme__img {
+        height: auto;
+        margin-bottom: 2em;
+        transform: scale(1);
+    }
+    /* изменение иконки мема */
+    .meme__label:hover .meme__icon {
+        width: 0.8em;
+        height: 0.8em;
+        margin-right: 0.05em;
+        background: url("icon/close-dark.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
 
+    /*      Клик по элементу        */
+    /* изменение цвета заголовка и иконки мема */
+    .meme__label:active .meme__title {
+        color: #1423CF;
+    }
+    .meme__label:active .meme__icon {
+        width: 0.8em;
+        height: 0.8em;
+        margin-right: 0.05em;
+        background: url("icon/close-blue.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+    /* изменение изображения */
+    .meme__label:active .meme__img {
+        opacity: 0.8;
+    }
 }

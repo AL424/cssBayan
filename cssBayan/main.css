@@ -1,0 +1,190 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #012E4A;
+}
+
+.main {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 1em;
+}
+
+.main-title {
+    font-size: 1.5em;
+}
+
+.meme {
+    border-top: solid 1px #012e4a83;
+}
+
+.meme__input {
+    display: none;
+}
+
+.meme__label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* изменение заголовка мема в выбраном состоянии */
+.meme__title {
+    font-size: 1em;
+    width: 80%;
+    color: #1423CF;
+    transition: all 0.3s linear;
+}
+.meme__input:checked ~ .meme__title {
+    color: #012E4A;
+}
+
+/* изменение иконки выбраного мема */
+.meme__icon {
+    display: block;
+    width: 0.8em;
+    height: 0.8em;
+    background: url("icon/icon-blue.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: all 0.2s ease;
+}
+.meme__input:checked ~ .meme__icon {
+    width: 0.7em;
+    height: 0.7em;
+    margin-right: 0.05em;
+    background: url("icon/close-dark.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+/* отображение изображения выбраного мема */
+.meme__img {
+    display: block;
+    width: 80%;
+    height: 0;
+    margin: 0 auto;
+    object-fit: contain;
+    transform: scale(0);
+    transition: all 0.3s linear;
+}
+.meme__input:checked ~ .meme__img {
+    height: auto;
+    margin-bottom: 1em;
+    transform: scale(1);
+}
+
+/*      tablet      */
+@media (min-width: 800px) {
+    .main-title {
+        font-size: 1.7em;
+    }
+    .meme__title {
+        font-size: 1.1em;
+    }
+    .meme__img {
+        width: 60%;
+    }
+    .meme__input:checked ~ .meme__img {
+        margin-bottom: 2em;
+    }
+}
+
+/*      desktop     */
+@media (min-width: 1200px) {
+    .main {
+        width: 40%;
+    }
+    .main-title {
+        font-size: 2em;
+    }
+    .meme__title {
+        font-size: 1.2em;
+    }
+    .meme__icon {
+        width: 1em;
+        height: 1em;
+    }
+    .meme__img {
+        max-height: 50vh;
+    }
+    .meme__input:checked ~ .meme__icon {
+        width: 0.8em;
+        height: 0.8em;
+        margin-right: 0.05em;
+    }
+}
+
+/*      Устройства с курсорами      */
+@media (hover: hover) {
+    /*      Наведение на аккордион      */
+    /* изменение курсора */
+    .meme__label, 
+    .meme,
+    .accordion {
+        cursor: pointer;
+    }
+    .meme__title,
+    .meme__icon,
+    .meme__img {
+        pointer-events: none;
+    }
+    /* отоброжение иконки */
+    .meme__icon {
+        background: url("icon/icon-dark.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        transform: scale(0);
+    }
+    .accordion:hover .meme__icon {
+        transform: scale(1);
+    }
+    /* изменение цвета заголовков мемов */
+    .accordion:hover .meme__title {
+        color: #012E4A;
+    }
+    
+    /*      Наведение на один из элементов      */
+    /* отображение изображения мема */
+    .meme__label:hover .meme__img {
+        height: auto;
+        margin-bottom: 2em;
+        transform: scale(1);
+    }
+    /* изменение иконки мема */
+    .meme__label:hover .meme__icon {
+        width: 0.8em;
+        height: 0.8em;
+        margin-right: 0.05em;
+        background: url("icon/close-dark.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+
+    /*      Клик по элементу        */
+    /* изменение цвета заголовка и иконки мема */
+    .meme__label:active .meme__title {
+        color: #1423CF;
+    }
+    .meme__label:active .meme__icon {
+        width: 0.8em;
+        height: 0.8em;
+        margin-right: 0.05em;
+        background: url("icon/close-blue.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+    /* изменение изображения */
+    .meme__label:active .meme__img {
+        opacity: 0.8;
+    }
+}
